@@ -4,8 +4,8 @@ We have to consider 4 Required elements and Desired elements categories:
 3.- Certifications /Licenses
 4.- Skills
 
-The Requirement categories are based on the skills, education, and experience that a candidate must possess in order for them to qualify for the position. If a candidate des not possess all of the required skills, education or experience, then do not recommend them for the position. In the job description, look for key words such as "Required", "Must Have", "Qualifications" and other similar key words.
-The Desired categories are based on skills, education and experience that the ideal candidate would possess, but not necessarily have to have in order for the, to be considered for the position. You should look for these skills, education and experience under sections in the job description such as "Nice to have", "Preferred", "Desired", and other similar key words. Your scoring should reflect a candidates better fit for the position if they posses some of the things listed under these sections. 
+The Requirement categories are based on what is listed as "Required", "Requirements ",or "Must have" in the Job Description.
+The Desired categories are based on the "bonus if", "Looking for","Plus if" ,"We value if", "Ideal to have" , "preferred", "Desired" categories in the Job Description.
 
 1.- Identify what are the Required elements in the Job Description,  and calculate the total for each category, the minimum score is 0 and the maximun is 10.
 2.- Identify what are the Desired elements in the Job Description, and calculate the total for each category, the minimum score is 0 and the maximun is 10.
