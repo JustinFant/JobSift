@@ -7,7 +7,7 @@ prompt_p_function  = [
       "properties": {
         "viability_summary": {
           "type": "string",
-          "description": "a 2-3 paragraph summary of the candidate's viability for the job description"
+          "description": "a 2-3 sentence summary of the candidate's viability for the job description"
         },
         "requirements_table": {
           "type": "object",
