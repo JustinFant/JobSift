@@ -7,7 +7,7 @@ from functions.functions_professional import prompt_p_function
 load_dotenv()
 client = OpenAI()
 
-def calculate_score(job_description, candidate_resume, job_type): # api call function to chatgpt
+def calculate_score(job_description, candidate_resume, job_type,): # api call function to chatgpt
   prompt_guidelines = '' # variable to store the rules of the prompt
   prompt_function = []
   if job_type == 'Light Industrial':  # switch to handle the rules of the prompt
@@ -32,11 +32,11 @@ def calculate_score(job_description, candidate_resume, job_type): # api call fun
       {"role":"user", "content":f"Job Description: {job_description}"},
       {"role":"user", "content":f"Candidate Resume: {candidate_resume}"},
       {"role":"user", "content":f"{prompt_guidelines}```"},
-      {"role":"user", "content":f" 2.- Provide a 3-4 sentence summary of the candidate's\
-        viability for the job description. At the beginning of your summary, make sure to include whether you think \
-        the candidate is a good fit or not. Remember that you want to select only the very best candidates for BEPC. \
+      {"role":"user", "content":f"Provide a 3-4 sentence summary of the candidate's viability for the job description. \
+        At the beginning of your summary, make sure to include whether you think the candidate is a good fit or not. \
+        Remember that you want to select only the very best candidates for BEPC. \
         But do not mention BEPC in your summary. Focus more on the reasoning behind your score and what factors lead \
-        to you choosing that score. Make sure to include every skill or experience that the candidate possesses, as well \
+        to you choosing that score. Make sure to include every skill or experience that the candidate possesses, as well as \
         any requirements or preferences that the candidate lacks. It's important to mention all skills and experience in your summary."},
       {"role":"user", "content":"Create a list of the required categories, specify if the category is required,\
         the score you gave, and the explanation for that score given"},
