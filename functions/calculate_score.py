@@ -32,12 +32,14 @@ def calculate_score(job_description, candidate_resume, job_type,): # api call fu
       {"role":"user", "content":f"Job Description: {job_description}"},
       {"role":"user", "content":f"Candidate Resume: {candidate_resume}"},
       {"role":"user", "content":f"{prompt_guidelines}```"},
-      {"role":"user", "content":f"Provide a 3-4 sentence summary of the candidate's viability for the job description. \
-        At the beginning of your summary, make sure to include whether you think the candidate is a good fit or not. \
-        Remember that you want to select only the very best candidates for BEPC. \
-        But do not mention BEPC in your summary. Focus more on the reasoning behind your score and what factors lead \
-        to you choosing that score. Make sure to include every skill or experience that the candidate possesses, as well as \
-        any requirements or preferences that the candidate lacks. It's important to mention all skills and experience in your summary."},
+      {"role":"user", "content":f"Provide a 3-4 sentence summary of the candidate's viability, based on how well they fit the job description. \
+        Start your summary with a sentence like this: \
+        The candidate, (candidate name), is a (bad, good or great) fit for the (job name) \
+        position. Next, you will explain your reasoning for your decision, by listing all experience, skills, certifications \
+        and education that the candidate either possesses or does not possess. Focus on the reasoning behind your decision \
+        and what factors lead to you either recommending or not recommending the candidate for the position. Remember that since \
+        you are an expert recruiter, it's important for you to recommend only the best candidates for these positions. Also make \
+        sure to not mention BEPC in your summary."},
       {"role":"user", "content":"Create a list of the required categories, specify if the category is required,\
         the score you gave, and the explanation for that score given"},
       {"role":"user", "content":"Create a list of the desired categories, specify if the category is required,\
