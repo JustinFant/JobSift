@@ -28,13 +28,13 @@ st.markdown(
 
 # User Input via Streamlit widgets
 job_type = st.selectbox('Select Job Type', ['Professional', 'Light Industrial'])
-job_id = st.text_input('1.- Enter the Job ID') #'23087' for testing
-candidate_id = st.text_input('2.- Enter the Candidate ID')  # Changed 'candidate' to 'candidate_id' for consistency '298853' for testing
-experience = st.text_input('3.- Enter the Candidate Experience')
-keywords = st.text_input('4.- Enter the Keywords')
+job_id = st.text_input('1.- Enter the Job ID', '23780') #'23087' for testing
+candidate_id = st.text_input('2.- Enter the Candidate ID', '312244')  # Changed 'candidate' to 'candidate_id' for consistency '298853' for testing
+# experience = st.text_input('3.- Enter the Candidate Experience')
+# keywords = st.text_input('4.- Enter the Keywords')
 
 # Evaluate Resume Button
-if st.button('Evaluate Resume'):
+if st.button('Evaluate Resume', type = 'primary'):
   with st.spinner('Evaluating...'):
     # Fetch Job Description and Candidate Resume
     job_description, candidate_resume = fetch_data(job_id, candidate_id)
@@ -50,11 +50,16 @@ if st.button('Evaluate Resume'):
     
     # Display Results
     st.markdown("## Viability Summary:")
+    st.markdown(f"{transformed_response['recommendation']}")
     st.markdown(score_summary['viability_summary'], unsafe_allow_html=True)
-    st.subheader(f"Requirements Rating: {transformed_response['requirements_rating']}/10") 
+    st.header(f"Overall Score: {transformed_response['overall_score']}/10")
+    # st.subheader(f"Requirements Rating: {transformed_response['requirements_rating']}") 
+    st.text('Required Elements Breakdown:')
     st.markdown(transformed_response['requirements_table'], unsafe_allow_html=True)
-    st.subheader(f"Preferences Rating : {transformed_response['preferences_rating']}/10")
+    # st.subheader(f"Preferences Rating : {transformed_response['preferences_rating']}")
+    st.text('Desired Elements Breakdown:')
     st.markdown(transformed_response['desired_elements_table'], unsafe_allow_html=True)
+    # print(transformed_response['overall_score'])
 
 # Footer
 st.markdown("""
