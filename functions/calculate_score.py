@@ -20,7 +20,7 @@ def calculate_score(job_description, candidate_resume, job_type,): # api call fu
       prompt_function = prompt_p_function
 
   score_summary = client.chat.completions.create( # Make API call
-    model = "gpt-4-1106-preview",
+    model = "gpt-4-1106-preview", # gpt-3.5-turbo-1106
     seed= 123455555,
     messages = [
       {"role":"system", "content":"You are an expert recruiter for a \

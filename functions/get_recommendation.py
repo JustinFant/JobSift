@@ -1,4 +1,3 @@
-# Python
 def get_recommendation(overall_score):
     if overall_score >= 9:
         return 'Candidate is a great fit.'
