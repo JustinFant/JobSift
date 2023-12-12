@@ -35,7 +35,8 @@ def calculate_score(job_description, candidate_resume, job_type,): # api call fu
       {"role":"user", "content":f"Provide a 3-4 sentence summary of the candidate. Include all experience, education \
         certifications and skills listed in their resume. Explain what experience, education, certifications and skills \
         the candidate either posses or does not posses. Explain your reasoning behind the score you gave. Do not mention \
-        BEPC in your summary. Refer to the candidate only as candidate, not by their name. "},
+        BEPC in your summary. Refer to the candidate only as candidate, not by their name. Be strict with your scoring. \
+        and recommendations, we want the best candidates to be presented to our clients."},
       {"role":"user", "content":"Create a list of the required categories, specify if the category is required,\
         the score you gave, and the explanation for that score given"},
       {"role":"user", "content":"Create a list of the desired categories, specify if the category is required,\

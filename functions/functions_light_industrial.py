@@ -12,7 +12,7 @@ prompt_li_function = [
         "requirements_table": {
           "type": "object",
           "properties": {
-            "education":{ # REQUIRED EDUCATION
+            "Education":{ # REQUIRED EDUCATION
               "type": "object",
               "properties": {
                 "measurable": {
@@ -21,7 +21,7 @@ prompt_li_function = [
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the education category, based on the required categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to the education category, based on the required categories, the minimum score is 0 and the maximum is 10.",
                 },
                 "explanation": {
                   "type": "string",
@@ -39,7 +39,7 @@ prompt_li_function = [
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the experience category, based on the required categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to the experience category, based on the required categories, the minimum score is 0 and the maximum is 10.",
                 },
                 "explanation": {
                   "type": "string",
@@ -57,7 +57,7 @@ prompt_li_function = [
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the certifications or licenses category, based on the required categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to the certifications or licenses category, based on the required categories, the minimum score is 0 and the maximum is 10.",
                 },
                 "explanation": {
                   "type": "string",
@@ -72,7 +72,7 @@ prompt_li_function = [
         "desired_elements_table": {
           "type": "object",
           "properties": {
-            "education":{ # PREFERRED EDUCATION
+            "Education":{ # PREFERRED EDUCATION
               "type": "object",
               "properties": {
                 "measurable": {
@@ -81,7 +81,7 @@ prompt_li_function = [
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the education category, based on the preferred categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to the education category, based on the preferred categories, the minimum score is 0 and the maximum is 10.",
                 },
                 "explanation": {
                   "type": "string",
@@ -99,7 +99,7 @@ prompt_li_function = [
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the education category, based on the preferred categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to the education category, based on the preferred categories, the minimum score is 0 and the maximum is 10.",
                 },
                 "explanation": {
                   "type": "string",
@@ -117,7 +117,7 @@ prompt_li_function = [
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the certifications or licenses category, based on the preferred categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to the certifications or licenses category, based on the preferred categories, the minimum score is 0 and the maximum is 10.",
                 },
                 "explanation": {
                   "type": "string",

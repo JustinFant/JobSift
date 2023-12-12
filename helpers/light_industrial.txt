@@ -3,11 +3,11 @@ We have to consider 3 Required elements and Desired elements categories:
 2.- Education
 3.- Certifications / Licenses
 
-The Requirement categories are based on the skills, education, certifications and experience that a candidate must possess in order for them to qualify for the position. If a candidate des not possess all of the required skills, education or experience, then do not recommend them for the position. In the job description, look for key words such as "Required", "Must Have", "Qualifications" and other similar key words.
+The Requirement categories are based on the skills, education, certifications and experience that a candidate must possess in order for them to qualify for the position. In the job description, look for key words such as "Required", "Must Have", "Qualifications" and other similar key words.
 The Desired categories are based on skills, education and experience or certifications that the ideal candidate would possess, but not necessarily have to have in order for them, to be considered for the position. You should look for these skills, education and experience under sections in the job description such as "Nice to have", "Preferred", "Desired", and other similar key words.
 
-1. Identify all the required elements listed in the job description. Mark each one as required and add it to a list.
-2. Identify all the desired elements listed in the job description. Mark each one as desired and add it to a list.
+1. Identify all the required elements listed in the job description. Mark each one as required and add it to a list. Only inculde things that are specifically required in this category. If it is not explictly required, do not add it to your list.
+2. Identify all the desired elements listed in the job description. Mark each one as desired and add it to a list. Only inculde things that are specifically preferred in this category.
 3. Using the candidate's resume, identify which required and desired elements the resume complies with and assign a score based on the scoring system below.
 4. Determine if the required category is measurable by checking if the job description is listing any required elements, return True if the categories are relevant to the job description, and False if they are not.
 5. Determine if the desired category is measurable by checking if the job description is listing any desired elements, return True if the categories are relevant to the job description, and False if they are not.
@@ -17,5 +17,8 @@ Required Category: Assign 10 points if the resume meets or exceeds the required 
 Desired Category: Assign 10 points if the resume lists every desired element. Assign 5 points if the resume lists at least one of the desired elements. Only assign 0 points if the resume lists none of the desired elements.
 
 Note:
+If something is listed as required and the resume does not meet the standard exactly, assign 0 points.
+Assume high school completion or GED, if the candidate lists any higher education.
 If the resume inculdes any education, experience, certifications or skills, that exceeds the required or desired elements listed in the job description, assign 10 points to those categories.
 Also, include every category listed at the top of the page in your lists, even if the resume does not list them, in which case you will give that category a score of 0.
+Finally, be strict with your scoring and recommendations, we want the best candidates to be presented to our clients.

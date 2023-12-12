@@ -3,6 +3,7 @@ import base64
 from functions.fetch_data import fetch_data
 from functions.calculate_score import calculate_score
 from functions.transform_response import transform_response
+from functions.get_recommendation import get_recommendation
 
 # Initialize Streamlit and set page configurations
 st.set_page_config(page_title="BEPC-JobSift", page_icon="static/logo.png", layout='wide')
@@ -28,8 +29,8 @@ st.markdown(
 
 # User Input via Streamlit widgets
 job_type = st.selectbox('Select Job Type', ['Professional', 'Light Industrial'])
-job_id = st.text_input('1.- Enter the Job ID', '23780') #'23087' for testing
-candidate_id = st.text_input('2.- Enter the Candidate ID', '312244')  # Changed 'candidate' to 'candidate_id' for consistency '298853' for testing
+job_id = st.text_input('1.- Enter the Job ID', '23683') #'23087' for testing
+candidate_id = st.text_input('2.- Enter the Candidate ID', '294958')  # Changed 'candidate' to 'candidate_id' for consistency '298853' for testing
 # experience = st.text_input('3.- Enter the Candidate Experience')
 # keywords = st.text_input('4.- Enter the Keywords')
 
@@ -50,7 +51,7 @@ if st.button('Evaluate Resume', type = 'primary'):
     
     # Display Results
     st.markdown("## Viability Summary:")
-    st.markdown(f"{transformed_response['recommendation']}")
+    st.markdown(f"**{get_recommendation(transformed_response['overall_score'])}**")
     st.markdown(score_summary['viability_summary'], unsafe_allow_html=True)
     st.header(f"Overall Score: {transformed_response['overall_score']}/10")
     # st.subheader(f"Requirements Rating: {transformed_response['requirements_rating']}") 
