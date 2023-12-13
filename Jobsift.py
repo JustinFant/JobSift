@@ -43,12 +43,12 @@ with open('helpers/score_examples.txt', 'r') as f:
 if st.button('Evaluate Resume', type = 'primary'):
   with st.spinner('Evaluating...'):
     start_time = time.time()
-    timeout = 15
+    timeout = 10
 
     # Fetch Job Description and Candidate Resume
     job_description, candidate_resume = fetch_data(job_id, candidate_id)
     
-    # Keep trying to fetch data if invalid, stop after 5 seconds
+    # Keep trying to fetch data if invalid, stop after 10 seconds
     while (not job_description or not candidate_resume) and time.time() - start_time < timeout:
       job_description, candidate_resume = fetch_data(job_id, candidate_id)
       
