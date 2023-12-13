@@ -1,5 +1,6 @@
 import streamlit as st
 import base64 
+import time
 from functions.fetch_data import fetch_data
 from functions.calculate_score import calculate_score
 from functions.transform_response import transform_response
@@ -29,19 +30,34 @@ st.markdown(
 
 # User Input via Streamlit widgets
 job_type = st.selectbox('Select Job Type', ['Professional', 'Light Industrial'])
-job_id = st.text_input('1.- Enter the Job ID', '23683') #'23087' for testing
-candidate_id = st.text_input('2.- Enter the Candidate ID', '294958')  # Changed 'candidate' to 'candidate_id' for consistency '298853' for testing
+job_id = st.text_input('Enter the Job ID') #'23087' for testing
+candidate_id = st.text_input('Enter the Candidate ID')  # Changed 'candidate' to 'candidate_id' for consistency '298853' for testing
 # experience = st.text_input('3.- Enter the Candidate Experience')
 # keywords = st.text_input('4.- Enter the Keywords')
+
+# Load scoring examples
+with open('helpers/score_examples.txt', 'r') as f:
+  score_examples = f.read()
 
 # Evaluate Resume Button
 if st.button('Evaluate Resume', type = 'primary'):
   with st.spinner('Evaluating...'):
+    start_time = time.time()
+    timeout = 15
+
     # Fetch Job Description and Candidate Resume
     job_description, candidate_resume = fetch_data(job_id, candidate_id)
     
+    # Keep trying to fetch data if invalid, stop after 5 seconds
+    while (not job_description or not candidate_resume) and time.time() - start_time < timeout:
+      job_description, candidate_resume = fetch_data(job_id, candidate_id)
+      
+    if not job_description or not candidate_resume:
+        st.error('Timeout while fetching data, please try again.')
+        st.rerun()
+
     # Calculate Score and Summary
-    score_summary = calculate_score(job_description, candidate_resume, job_type)
+    score_summary = calculate_score(job_description, candidate_resume, job_type, score_examples)
 
     transformed_response = transform_response( #transform the response arrays into html tables
       score_summary['requirements_table'],

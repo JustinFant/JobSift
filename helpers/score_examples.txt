@@ -1,0 +1,67 @@
+**These are examples of perfect analysis that has been previously generated, you can use these as guidelines to your analysis.
+Do not worry about the format, we handle that with code, just focus on the scoring and reasoning behind it, for future analysis.***
+
+
+***Example One***
+Viability Summary:
+Candidate is a good fit.
+
+The candidate, [candidate name], has over 20 years of experience in warehouse stocking, forklift operation, and general labor, which aligns well with the Installation Technician role 
+requiring mechanical/system hardware and software experience. The candidate has a high school diploma and extensive experience in material handling, equipment operation, and maintenance, 
+which meets the job's educational and experience requirements. However, there is no mention of technical school or equivalent military training, but the candidate possesses equivalent work history. 
+The candidate's resume also indicates strong communication skills and the ability to work in fast-paced environments, which are required for the role.
+
+Overall Score: 8.8/10
+
+Required Elements Breakdown:
+
+Education  | 3.3 | The candidate has a high school diploma but there is no mention of 2 years of technical school or equivalent military training, which is a requirement for the job. However, the candidate possesses equivalent work history, meeting the job's requirement.
+Experience | 3.3 | The candidate has over 20 years of relevant experience in mechanical/system hardware and software, as well as material handling, which matches the job's requirement for 2 years of progressive experience in repairing or servicing mechanical/system hardware and software.
+Certifications / Licenses |	3.3 |	The candidate has experience as a forklift operator, which implies the possession or ability to obtain a valid forklift operator certificate, meeting the job's requirement.
+
+Desired Elements Breakdown:
+
+Experience | 10.0 |	The candidate has experience working in a regulated work environment, which is a preferred experience for the job.
+
+***Example Two***
+Viability Summary:
+Candidate is not a good fit.
+
+The candidate, [candidate name] has a strong background in laboratory and quality control environments, with experience in biochemical testing, 
+sterile processing, and quality control in healthcare and manufacturing settings. They possess an Associate of Science in Biotechnology 
+and are pursuing a Bachelor of Science in Biology. The candidate holds a CRCST certification and has demonstrated skills in aseptic technique, 
+GxP, FDA regulations, and quality control, which align with the job requirements. However, the candidate's resume does not explicitly mention 
+experience as an Installation Technician or similar roles, nor does it indicate experience with forklift operation or training others, which are 
+required for the job.
+
+Overall Score: 5.8/10
+
+Required Elements Breakdown:
+Experience | 1.2 | The candidate has relevant experience in quality control and laboratory settings but lacks specific experience as an Installation Technician or in equipment installation, which is required for the job.
+Education |	2.5 | The candidate exceeds the minimum education requirement with an Associate of Science in Biotechnology and ongoing studies for a Bachelor of Science in Biology.
+Certifications / Licenses |	1.2 |	The candidate holds a CRCST certification, which is relevant to sterile processing but does not have a forklift operator certificate as required.
+
+Desired Elements Breakdown:
+
+Experience | 5.0 | The candidate has experience in a regulated work environment, which is a preferred experience, but there is no mention of experience in a Lean Manufacturing environment.
+
+***Example Three***
+Viability Summary:
+Candidate is a good fit.
+
+The candidate has relevant experience as a Production Operator and Packer/Inspector, which aligns with the Material Handler position's 
+responsibilities of handling materials, packaging, and maintaining inventory accuracy. They possess a Bachelor's degree in Sociology 
+and an Associate degree in Liberal Arts and Science, exceeding the minimum educational requirement of a High School or GED. The candidate also 
+holds a forklift certification, which is beneficial for the role, and has basic computer skills that match the job's skill requirements.
+
+Overall Score: 8.5/10
+
+Required Elements Breakdown:
+
+Education |	3.3	| The candidate has a Bachelor's and an Associate degree, which exceeds the minimum requirement of a High School or GED.
+Experience | 3.3 | The candidate has direct experience in roles that involve tasks similar to those described for the Material Handler position, such as assembling products, packaging, and maintaining a clean work environment.
+Certifications / Licenses |	3.3 |	The candidate holds a forklift certification, which is relevant and beneficial for the Material Handler role.
+
+Desired Elements Breakdown:
+
+Experience | 5.0 | The candidate has experience in production and packaging, which is relevant to the Material Handler role, but there is no mention of experience with Oracle or understanding of warehouse, manufacturing, or distribution processes, which are preferred.

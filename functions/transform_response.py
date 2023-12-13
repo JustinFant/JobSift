@@ -47,17 +47,17 @@ def transform_response(
 
     for req_key, req_value in desired_elements_table.items(): #this is the loop that will calculate the rating and build a table
       if req_value['measurable'] == True:
-        pref_rating += req_value['score'] / 2
+        pref_rating += req_value['score'] / additional_counter_pref
         desired_table_middle += '<tr>'
-        new_row = '<td>'+ req_key +'</td><td>' + str(round((req_value['score'] / 2), 1)) + '</td><td>' + req_value['explanation'] + '</td>'
+        new_row = '<td>'+ req_key +'</td><td>' + str(round((req_value['score'] / additional_counter_pref), 1)) + '</td><td>' + req_value['explanation'] + '</td>'
         desired_table_middle += new_row
         desired_table_middle += '</tr>'
-      if len(desired_elements_table) == 0:
-        req_rating = 0
-        desired_table_middle += '<tr>'
-        new_row = '<td>All</td><td>10</td><td>The job description does not specify any required elements.</td>'
-        desired_table_middle += new_row
-        desired_table_middle += '</tr>'
+    if additional_counter_pref == 0:
+      req_rating = 0
+      desired_table_middle += '<tr>'
+      new_row = '<td>All</td><td>10</td><td>The job description does not specify any required elements.</td>'
+      desired_table_middle += new_row
+      desired_table_middle += '</tr>'
       
   if job_type == 'Professional':
     print('----------------REQUIRED ELEMENTS----------------')
@@ -88,12 +88,12 @@ def transform_response(
         new_row = '<td>'+ req_key +'</td><td>' + str(round((req_value['score'] / additional_counter_pref), 1)) + '</td><td>' + req_value['explanation'] + '</td>'
         desired_table_middle += new_row
         desired_table_middle += '</tr>'
-      if len(desired_elements_table) == 0:
-        pref_rating = 0
-        desired_table_middle += '<tr>'
-        new_row = '<td>All</td><td>10</td><td>The job description does not specify any preferred elements.</td>'
-        desired_table_middle += new_row
-        desired_table_middle += '</tr>'
+    if additional_counter_pref == 0:
+      pref_rating = 0
+      desired_table_middle += '<tr>'
+      new_row = '<td>All</td><td>10</td><td>The job description does not specify any preferred elements.</td>'
+      desired_table_middle += new_row
+      desired_table_middle += '</tr>'
 
   requirements_table_full = requirements_table_start + requirements_table_middle + requirements_table_end
   desired_table_full = desired_table_start + desired_table_middle + desired_table_end

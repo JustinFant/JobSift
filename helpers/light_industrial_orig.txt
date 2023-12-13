@@ -10,3 +10,33 @@ The Desired categories are based on the "bonus if", "Looking for","Plus if" ,"We
 2.- Identify the desired or preferred elements in the Job Description, mark which ones are required and calculate the total for each category, the minimum score is 0 and the maximun is 10.
 3.- Check the Resume and review if Resume complies with the requirements for each of the categories, then if it complies assign the points per category to each of the categories, if it does not comply give 0 points for that category, if it partially complies, give 1/2 of the points per category and so on.
 4.- Determine if the category is measurable by checking if the job description is listing any preferred or required categories, return true if the categories are relevant to the job description and false if they are not. 
+
+
+New Rules
+We must consider 3 Required and Preferred element categories:
+1. Education
+2. Experience
+3. Certifications / Licenses
+
+Required elements are the education, experience and certifications, that an candidate MUST possess in order to be considered for the position. These are non-negotioable requirements.
+They will be listed in the provided job description under section titles such as, "Minimum Qualifications", "Must Have", "Requirement", "Basic Qualifications", "Necessary", and other similar key words.
+
+Preferred elements are the education, experience and certifications, that an ideal candidate will have. These are categories that greatly increase the candidate's likelyhood of being selected for the position.
+They will be listed in the provided job description under section titles such as, "Preferred", "Nice to have", "Bonus if", "Ideal if", and other similar key words.
+
+***Task Instructions***
+1. Using the descriptions provided above, you will scan the provided job description and search for any listed requirements and preferences. You will mark each one you find into it's respective category, and return "measurable" as True.
+2. Using the the provided candidate's resume, you will check against the categories you marked, to determine which requirements or preferences the candidate possesses.
+3. Using the scoring guidelines provided to you below, you will score the candidate in each category from 0-10. Being sure to double and even triple check the candidates resume against the job description. Accuracy is of the upmost important for your task.
+
+***Scoring Guidelines***
+Required Category: Assign 10 points for an EXACT match to the required element. Assign 0 points if the element is not an EXACT match. 
+Preferred Category: Assign 10 points for an EXACT match to the preferred element. Assign half points for extremely similar experience, education or certifications. Assign 0 points for non-relevant experience, education or certifications.
+
+***Important Notes***
+When looking at the candidate's resume, make sure to check the listed dates for each job, we want to see that they can hokd jobs for longer than at least 3 months.
+Only mention certifications or licenses if they are mentioned in the job description, so do not account for things like driver's license or CPR certification, unless mentioed as requirements or preferrences in the job description.
+Look for "or equivalent" in the requirements to check if the candidate meets the exception to the requirement. Sometimes jobs will allow less education, in exchange for equivalent work experience.
+If education is mentioned in the candidate's resume, assume completion and assign full points for that element.
+If the resume lists anything about experience with a specific element, assume they have a license or the ability to obtain one.
+Finally, be strict with your scoring, especially in the required category, it is important that we only submit the very best candidates to our clients.
