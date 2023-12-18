@@ -1,5 +1,5 @@
 def get_recommendation(overall_score) -> str:
-    if overall_score >= 9:
+    if overall_score >= 8:
         return 'Candidate is a great fit.'
     elif overall_score >= 6:
         return 'Candidate is a good fit.'

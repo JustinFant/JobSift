@@ -1,25 +1,21 @@
-We have to consider 4 Required elements and Desired elements categories:
+We have to consider 3 Required elements and Desired elements categories:
 1.- Experience
 2.- Education
-3.- Certifications /Licenses
+3.- Certifications / Licenses
 4.- Skills
 
 The Requirement categories are based on the skills, education, certifications and experience that a candidate must possess in order for them to qualify for the position. In the job description, look for key words such as "Required", "Must Have", "Qualifications" and other similar key words.
 The Desired categories are based on skills, education and experience or certifications that the ideal candidate would possess, but not necessarily have to have in order for them, to be considered for the position. You should look for these skills, education and experience under sections in the job description such as "Nice to have", "Preferred", "Desired", and other similar key words.
 
-1. Identify all the required elements listed in the job description. Mark each one as required and add it to a list. Only inculde things that specifically required in this category. If it is not explictly required, do not add it to your list.
-2. Identify all the desired elements listed in the job description. Mark each one as desired and add it to a list. Only include things that are specifically preferred in this category.
-3. Using the candidate's resume, identify which required and desired elements the resume complies with and assign a score based on the scoring system below.
-4. Determine if the required category is measurable by checking if the job description is listing any required elements, return True if the categories are relevant to the job description, and False if they are not.
-5. Determine if the desired category is measurable by checking if the job description is listing any desired elements, return True if the categories are relevant to the job description, and False if they are not.
+Instructions:
+1. Given the provided job description, identify all the required and preferred elements listed. Only include the specific and exact elements listed in the job description, be precise with this step.
+2. Using the provided resume, determine which, if any, required and preferred elements the resume matches, and assign a score using the scoring guidelines given to you below. 
 
-Scoring System:
-Required Category: Assign 10 points if the resume meets or exceeds the required elements. Assign 5 points if the resume lists similar experience as what is required by the job description. Assign 0 points if the resume does not meet any of the required elements.
-Desired Category: Assign 10 points if the resume lists every desired element. Assign 5 points if the resume lists at least one of the desired elements. Only assign 0 points if the resume lists none of the desired elements. If the resume lists a certification that is not listed in the job description, mark measurable as false, and do not include it in your list or score.
+Scoring Guidelines:
+Only account for specific mentions of required elements in the resume, if it isn't mentioned in the job description, do not account for it in your scoring.
 
-Note:
-If something is listed as required and the resume does not meet the standard exactly, assign 0 points.
-If the resume inculdes any education, experience, certifications or skills, that exceeds the required or desired elements listed in the job description, assign 10 points to those categories.
-Assume high school completion or GED, if the candidate lists any higher education.
-Also, include every category listed at the top of the page in your lists, even if the resume does not list them, in which case you will give that category a score of 0.
-Finally, be strict with your scoring and recommendations, we want the best candidates to be presented to our clients.
+Required Category: We need to be a bit more strict here, so if the candidate meets or exceeds the requirement, assign 10 points. If they do not meet the requirement, assign 0 points, for this category, we don't care if they partially meet, or have something similar.
+Preferred Category: For this category, we can be a bit more forgiving, so if the candidate meets or exceeds the preference, assign 10 points, if they only partially meet the preference or have something extremely similar, assign half points (5), and if they do not meet the preference, assign 0 points.
+
+Additional Notes:
+Let a poor work history impact your scoring. Some candidates have only held jobs for 1-2 months, if that's the case, let that reflect in your scoring of them.

@@ -17,11 +17,11 @@ prompt_p_function  = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "If the job description states required or must have experience, mark this as true.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the experience category, based on the required categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to required experience category, give full points for an exact match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -35,11 +35,11 @@ prompt_p_function  = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "If the job description states required or must have education, mark this as true.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the education category, based on the required categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to required education category, give full points for an exact match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -53,11 +53,11 @@ prompt_p_function  = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "If the job description states required or must have certifications / licenses, mark this as true.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the certifications or licenses category, based on the required categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to required certifications / licenses category, give full points for an exact match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -71,11 +71,11 @@ prompt_p_function  = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "If the job description states required or must have skills, mark this as true.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the skills category, based on the required categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to required skills category, give full points for an exact match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -95,11 +95,11 @@ prompt_p_function  = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "return true if the job description mentions any kind of preferred experience.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the education category, based on the preferred categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to preferred experience category, give full points for an exact match, give 1/2 points for close match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -113,11 +113,11 @@ prompt_p_function  = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "return true if the job description mentions any kind of preferred education.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the education category, based on the preferred categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to preferred education category, give full points for an exact match, give 1/2 points for close match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -131,11 +131,11 @@ prompt_p_function  = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "return true if the job description mentions any kind of preferred certifications / licenses.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the certifications or licenses category, based on the preferred categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to preferred certifications / licenses category, give full points for an exact match, give 1/2 points for close match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -149,11 +149,11 @@ prompt_p_function  = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "return true if the job description mentions any kind of preferred skills.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the skills category, based on the preferred categories, the minimum score is 0 and the maximun is 10.",
+                  "description": "Score given to preferred skills category, give full points for an exact match, give 1/2 points for close match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",

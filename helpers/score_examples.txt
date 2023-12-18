@@ -1,67 +1,131 @@
-**These are examples of perfect analysis that has been previously generated, you can use these as guidelines to your analysis.
-Do not worry about the format, we handle that with code, just focus on the scoring and reasoning behind it, for future analysis.***
-
+***These are examples of good responses for you to analyze and match your response to.***
 
 ***Example One***
 Viability Summary:
 Candidate is a good fit.
 
-The candidate, [candidate name], has over 20 years of experience in warehouse stocking, forklift operation, and general labor, which aligns well with the Installation Technician role 
-requiring mechanical/system hardware and software experience. The candidate has a high school diploma and extensive experience in material handling, equipment operation, and maintenance, 
-which meets the job's educational and experience requirements. However, there is no mention of technical school or equivalent military training, but the candidate possesses equivalent work history. 
-The candidate's resume also indicates strong communication skills and the ability to work in fast-paced environments, which are required for the role.
+The candidate appears to be a suitable match for the Material Handler position, with relevant experience in warehouse operations, packaging, and maintaining work areas. They have completed high school, which meets the minimum educational requirement. The candidate's resume does not list any specific certifications or licenses, but their experience with material handling suggests they may be capable of operating material handling equipment safely.
 
-Overall Score: 8.8/10
+Overall Score: 6.2/10
 
-Required Elements Breakdown:
+***Required Elements Breakdown:***
 
-Education  | 3.3 | The candidate has a high school diploma but there is no mention of 2 years of technical school or equivalent military training, which is a requirement for the job. However, the candidate possesses equivalent work history, meeting the job's requirement.
-Experience | 3.3 | The candidate has over 20 years of relevant experience in mechanical/system hardware and software, as well as material handling, which matches the job's requirement for 2 years of progressive experience in repairing or servicing mechanical/system hardware and software.
-Certifications / Licenses |	3.3 |	The candidate has experience as a forklift operator, which implies the possession or ability to obtain a valid forklift operator certificate, meeting the job's requirement.
+Education |	3.3 |	The candidate has completed high school, which matches the required education level for the position.
 
-Desired Elements Breakdown:
+Experience | 3.3 |	The candidate has experience as a picker/packer and maintenance operator, which aligns with the responsibilities of the Material Handler role, such as unloading, storage, picking, labeling, packaging, and shipping of materials.
 
-Experience | 10.0 |	The candidate has experience working in a regulated work environment, which is a preferred experience for the job.
+Certifications / Licenses |	0.0 |	There is no mention of any certifications or licenses on the candidate's resume, which is a requirement for operating material handling equipment; however, the candidate's experience suggests they may have the necessary skills.
+
+***Desired Elements Breakdown:***
+
+Experience | 5.0 |	The candidate has relevant warehouse and packaging experience, but there is no mention of experience with Oracle or understanding of warehouse, manufacturing, or distribution processes, which are beneficial but not required.
 
 ***Example Two***
 Viability Summary:
-Candidate is not a good fit.
+Candidate is a good fit.
 
-The candidate, [candidate name] has a strong background in laboratory and quality control environments, with experience in biochemical testing, 
-sterile processing, and quality control in healthcare and manufacturing settings. They possess an Associate of Science in Biotechnology 
-and are pursuing a Bachelor of Science in Biology. The candidate holds a CRCST certification and has demonstrated skills in aseptic technique, 
-GxP, FDA regulations, and quality control, which align with the job requirements. However, the candidate's resume does not explicitly mention 
-experience as an Installation Technician or similar roles, nor does it indicate experience with forklift operation or training others, which are 
-required for the job.
+The candidate has relevant experience in material handling and packaging, with roles at Amazon, UPS, and Aurora Products, which aligns well with the job description's requirements for a Material Handler. They have a high school diploma, meeting the minimum educational requirement. However, the candidate's resume does not list any certifications or licenses related to material handling equipment operation, which may be necessary for the role.
 
-Overall Score: 5.8/10
+Overall Score: 6.2/10
 
-Required Elements Breakdown:
-Experience | 1.2 | The candidate has relevant experience in quality control and laboratory settings but lacks specific experience as an Installation Technician or in equipment installation, which is required for the job.
-Education |	2.5 | The candidate exceeds the minimum education requirement with an Associate of Science in Biotechnology and ongoing studies for a Bachelor of Science in Biology.
-Certifications / Licenses |	1.2 |	The candidate holds a CRCST certification, which is relevant to sterile processing but does not have a forklift operator certificate as required.
+***Required Elements Breakdown:***
 
-Desired Elements Breakdown:
+Education |	3.3 |	The candidate has a high school diploma, which matches the required education level for the position.
 
-Experience | 5.0 | The candidate has experience in a regulated work environment, which is a preferred experience, but there is no mention of experience in a Lean Manufacturing environment.
+Experience | 3.3 |	The candidate has over a year of experience in relevant fields such as packing, material handling, and warehouse operations, which exceeds the 0-1 year experience requirement.
+
+Certifications / Licenses |	0.0 |	The candidate's resume does not mention any certifications or licenses related to the operation of material handling equipment, which is a requirement for the job.
+
+***Desired Elements Breakdown:***
+
+Experience | 5.0 |	The candidate has relevant warehouse and packaging experience, but there is no mention of experience with Oracle or understanding of warehouse, manufacturing, or distribution processes, which are beneficial but not required.
 
 ***Example Three***
 Viability Summary:
 Candidate is a good fit.
 
-The candidate has relevant experience as a Production Operator and Packer/Inspector, which aligns with the Material Handler position's 
-responsibilities of handling materials, packaging, and maintaining inventory accuracy. They possess a Bachelor's degree in Sociology 
-and an Associate degree in Liberal Arts and Science, exceeding the minimum educational requirement of a High School or GED. The candidate also 
-holds a forklift certification, which is beneficial for the role, and has basic computer skills that match the job's skill requirements.
+The candidate has extensive experience in shipping and receiving, which aligns well with the Material Handler position's responsibilities. They have completed high school and taken some business courses, meeting the minimum educational requirement. The candidate is also Hazmat and forklift certified, which is beneficial for the role.
 
-Overall Score: 8.5/10
+Overall Score: 7.5/10
 
-Required Elements Breakdown:
+***Required Elements Breakdown:***
 
-Education |	3.3	| The candidate has a Bachelor's and an Associate degree, which exceeds the minimum requirement of a High School or GED.
-Experience | 3.3 | The candidate has direct experience in roles that involve tasks similar to those described for the Material Handler position, such as assembling products, packaging, and maintaining a clean work environment.
-Certifications / Licenses |	3.3 |	The candidate holds a forklift certification, which is relevant and beneficial for the Material Handler role.
+Education |	3.3 |	The candidate has completed high school and has taken some business courses, which meets the required education level for the position.
 
-Desired Elements Breakdown:
+Experience | 3.3 | The candidate has over 20 years of experience in shipping and receiving, which exceeds the 0-1 year of experience required by the job description.
 
-Experience | 5.0 | The candidate has experience in production and packaging, which is relevant to the Material Handler role, but there is no mention of experience with Oracle or understanding of warehouse, manufacturing, or distribution processes, which are preferred.
+Certifications / Licenses |	3.3 |	The candidate is Hazmat and forklift certified, which are relevant certifications for the Material Handler role.
+
+***Desired Elements Breakdown:***
+
+Education |	0.0 |	The job description does not list any preferred education, so this category is not applicable.
+
+Experience | 1.7 |	The candidate has relevant experience in shipping and receiving but does not specifically mention experience with Oracle or understanding of warehouse, manufacturing, or distribution processes, which are listed as beneficial.
+
+Certifications / Licenses |	0.0 |	The job description does not list any preferred certifications or licenses, so this category is not applicable.
+
+***Example Four***
+Viability Summary:
+Candidate is not a good fit.
+
+The candidate has relevant experience in material handling and warehouse operations, which aligns with the responsibilities of the Material Handler position. They possess a high school diploma, meeting the minimum educational requirement. However, the candidate's resume does not list any specific certifications or licenses required for operating material handling equipment.
+
+Overall Score: 5.4/10
+
+***Required Elements Breakdown:***
+
+Education |	3.3 |	The candidate has a high school diploma, which matches the required education level for the position.
+
+Experience | 3.3 | The candidate has experience in warehouse operations, packaging, and delivery, which meets the 0 - 1 year of experience required for the Material Handler role.
+
+Certifications / Licenses |	0.0 |	There is no mention of any certifications or licenses on the candidate's resume, which is a requirement for operating material handling equipment.
+
+***Desired Elements Breakdown:***
+
+Experience | 2.5 | The candidate has warehouse experience but does not mention any experience with Oracle or understanding of warehouse, manufacturing, or distribution processes, which are beneficial but not required.
+
+Certifications / Licenses |	0.0 |	The job description does not list any preferred certifications or licenses, so this category is not applicable.
+
+***Example Five***
+Viability Summary:
+Candidate is a good fit.
+
+The candidate has relevant experience as a Material Handler and in various warehouse roles, which aligns with the job description's requirements. They have completed some high school education and possess a forklift certification, which is beneficial for the role. The candidate's skills in forklift operation, warehouse management, and materials handling are directly applicable to the responsibilities of the position.
+
+Overall Score: 7.8/10
+
+***Required Elements Breakdown:***
+
+Education |	3.3 |	The candidate has attended high school, meeting the minimum educational requirement of a High School or General Education Degree (GED).
+
+Experience | 3.3 | The candidate has over a year of experience as a Material Handler and in other relevant warehouse roles, satisfying the 0 - 1 year of experience requirement.
+
+Certifications / Licenses |	3.3 |	The candidate is Forklift Certified, which is a relevant certification for operating material handling equipment as required for the role.
+
+***Desired Elements Breakdown:***
+
+Experience | 2.5 | The candidate has extensive warehouse experience, which is beneficial, but there is no mention of experience with Oracle or understanding of warehouse, manufacturing, or distribution processes.
+
+Certifications / Licenses |	0.0 |	The job description does not list any preferred certifications or licenses, so this category is not applicable.
+
+***Example Six***
+Viability Summary:
+Candidate is not a good fit.
+
+The candidate has relevant experience in manufacturing and assembly, which aligns with the responsibilities of the Material Handler position. They have been recognized for their performance with an Employee of the Month award, indicating a strong work ethic and attention to detail. The candidate's resume does not mention their educational background or any certifications/licenses, which are required for the position.
+
+Overall Score: 3.1/10
+
+***Required Elements Breakdown:***
+
+Education |	0.0 |	The candidate's resume does not mention their level of education, therefore it cannot be determined if they meet the required High School or GED level.
+
+Experience | 3.3 | The candidate has experience as an assembler in a related field, which meets the 0 - 1 year of experience requirement for the Material Handler position.
+
+Certifications / Licenses |	0.0 |	There is no mention of certifications or licenses on the candidate's resume, which is a requirement for operating material handling equipment.
+
+***Desired Elements Breakdown:***
+
+Experience | 2.5 | The candidate has experience in manufacturing and assembly, which is relevant to the position, but there is no mention of experience with Oracle or understanding of warehouse, manufacturing, or distribution processes.
+
+Certifications / Licenses |	0.0 |	The job description lists basic experience with Oracle as beneficial, but the candidate does not mention any such experience or related certifications.
