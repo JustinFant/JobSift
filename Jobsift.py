@@ -7,7 +7,7 @@ from functions.transform_response import transform_response
 from functions.get_recommendation import get_recommendation
 
 # Initialize Streamlit and set page configurations
-st.set_page_config(page_title="BEPC-JobSift", page_icon="static/logo.png", layout='wide')
+st.set_page_config(page_title="BEPC-JobSift Beta", page_icon="static/logo.png", layout='wide')
 
 # Function to read binary data and convert to base64
 def get_image_base64(image_path):
@@ -21,7 +21,7 @@ st.markdown(
   <div class="container">
     <h2 class="text-center mt-4">
       <img src="data:image/png;base64,{sr2new}" width="50" height="50" class="d-inline-block align-top" alt="">
-      JobSift v2.1 <span style="font-style: italic; font-size: 17px;">for recruiting</span>
+      JobSift Beta <span style="font-style: italic; font-size: 17px;">for recruiting</span>
     </h2>
   </div>
   """,
