@@ -21,7 +21,7 @@ st.markdown(
   <div class="container">
     <h2 class="text-center mt-4">
       <img src="data:image/png;base64,{sr2new}" width="50" height="50" class="d-inline-block align-top" alt="">
-      JobSift Beta <span style="font-style: italic; font-size: 17px;">for recruiting</span>
+      JobSift Beta <span style="font-style: italic; font-size: 17px;">V2.0 for recruiting</span>
     </h2>
   </div>
   """,
@@ -87,7 +87,7 @@ st.markdown("""
       <a href="Privacy_Policy_Link">Privacy Policy</a> |
       <a href="Cybersecurity_Link">Cybersecurity</a> |
       <a href="HIPAA_Link">HIPAA</a>
-      |  MSJAMMXXIII
+      |  MSJAJFMMXXIII
     </p>
   </div>
 </footer>
