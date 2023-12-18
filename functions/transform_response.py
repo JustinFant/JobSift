@@ -1,6 +1,5 @@
 # this function transforms the output from the response as readable strings for easy coding and formatting
 import os
-import statistics
 def transform_response(
   requirements_table, 
   desired_elements_table,

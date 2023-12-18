@@ -12,7 +12,4 @@ def fetch_data(job_id, candidate_id): # Fetch Job Description and resume
   response_resume = requests.post(url_resume, data=data_resume)
   candidate_resume = response_resume.text
 
-  # if not job_description or not candidate_resume:
-  #   raise ValueError('Something went wrong, please try again.')
-
   return job_description, candidate_resume

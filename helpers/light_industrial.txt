@@ -21,4 +21,3 @@ If something is listed as required and the resume does not meet the standard exa
 Assume high school completion or GED, if the candidate lists any higher education.
 If the resume inculdes any education, experience, certifications or skills, that exceeds the required or desired elements listed in the job description, assign 10 points to those categories.
 Also, include every category listed at the top of the page in your lists, even if the resume does not list them, in which case you will give that category a score of 0.
-Finally, be strict with your scoring and recommendations, we want the best candidates to be presented to our clients.

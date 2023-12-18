@@ -17,11 +17,11 @@ prompt_li_function = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "If the job description states that education is needed, mark this as true.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the education category, based on the required categories, the minimum score is 0 and the maximum is 10.",
+                  "description": "Score given to required education category, give full points for an exact match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -35,11 +35,11 @@ prompt_li_function = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "If the job description states that experience is needed, mark this as true.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the experience category, based on the required categories, the minimum score is 0 and the maximum is 10.",
+                  "description": "Score given to required experience category, give full points for an exact match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -53,11 +53,11 @@ prompt_li_function = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "If the job description states that certifications or licenses are needed, mark this as true.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the certifications or licenses category, based on the required categories, the minimum score is 0 and the maximum is 10.",
+                  "description": "Score given to required certifications / licenses category, give full points for an exact match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -77,11 +77,11 @@ prompt_li_function = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "If the job description states that a certain education is preferred or nice to have, mark this as true.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the education category, based on the preferred categories, the minimum score is 0 and the maximum is 10.",
+                  "description": "Score given to preferred education category, give full points for an exact match, give 1/2 points for close match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -95,11 +95,11 @@ prompt_li_function = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "If the job description states any preferred experience, mark this as true.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the education category, based on the preferred categories, the minimum score is 0 and the maximum is 10.",
+                  "description": "Score given to preferred experience category, give full points for an exact match, give 1/2 points for close match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",
@@ -113,11 +113,11 @@ prompt_li_function = [
               "properties": {
                 "measurable": {
                   "type": "boolean",
-                  "description": "If the job description states any preferred certifications or licenses, mark this as true.",
+                  "description": "Mark this as true.",
                 },
                 "score": {
                   "type": "number",
-                  "description": "Score given to the certifications or licenses category, based on the preferred categories, the minimum score is 0 and the maximum is 10.",
+                  "description": "Score given to preferred certifications / licenses category, give full points for an exact match, give 1/2 points for close match, and no points for no match.",
                 },
                 "explanation": {
                   "type": "string",

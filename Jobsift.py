@@ -29,7 +29,7 @@ st.markdown(
 )
 
 # User Input via Streamlit widgets
-job_type = st.selectbox('Select Job Type', ['Professional', 'Light Industrial'])
+job_type = st.selectbox('Select Job Type', ['Light Industrial', 'Professional'])
 job_id = st.text_input('Enter the Job ID') #'23087' for testing
 candidate_id = st.text_input('Enter the Candidate ID')  # Changed 'candidate' to 'candidate_id' for consistency '298853' for testing
 # experience = st.text_input('3.- Enter the Candidate Experience')
@@ -53,8 +53,8 @@ if st.button('Evaluate Resume', type = 'primary'):
       job_description, candidate_resume = fetch_data(job_id, candidate_id)
       
     if not job_description or not candidate_resume:
-        st.error('Timeout while fetching data, please try again.')
-        st.rerun()
+      st.error('Timeout while fetching data, please try again.')
+      st.rerun()
 
     # Calculate Score and Summary
     score_summary = calculate_score(job_description, candidate_resume, job_type, score_examples)
