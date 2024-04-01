@@ -1,13 +1,12 @@
 import streamlit as st
-import base64 
 import time
+import json
+import base64 
 from functions.fetch_data import fetch_data
 from functions.calculate_score import calculate_score
-from functions.transform_response import transform_response
-from functions.get_recommendation import get_recommendation
 
-# Initialize Streamlit and set page configurations
-st.set_page_config(page_title="BEPC-JobSift Beta", page_icon="static/logo.png", layout='wide')
+
+st.set_page_config(page_title="BEPC-JobsiftBeta", page_icon="static/logo.png", layout='wide')
 
 # Function to read binary data and convert to base64
 def get_image_base64(image_path):
@@ -21,7 +20,7 @@ st.markdown(
   <div class="container">
     <h2 class="text-center mt-4">
       <img src="data:image/png;base64,{sr2new}" width="50" height="50" class="d-inline-block align-top" alt="">
-      JobSift Beta <span style="font-style: italic; font-size: 17px;">V2.0 for recruiting</span>
+      JobSift Beta <span style="font-style: italic; font-size: 17px;">V3.0 for recruiting</span>
     </h2>
   </div>
   """,
@@ -29,17 +28,10 @@ st.markdown(
 )
 
 # User Input via Streamlit widgets
-job_type = st.selectbox('Select Job Type', ['Light Industrial', 'Professional'])
 job_id = st.text_input('Enter the Job ID') #'23087' for testing
-candidate_id = st.text_input('Enter the Candidate ID')  # Changed 'candidate' to 'candidate_id' for consistency '298853' for testing
-# experience = st.text_input('3.- Enter the Candidate Experience')
-# keywords = st.text_input('4.- Enter the Keywords')
+candidate_id = st.text_input('Enter the Candidate ID') # '298853' for testing
 
-# Load scoring examples
-with open('helpers/score_examples.txt', 'r') as f:
-  score_examples = f.read()
 
-# Evaluate Resume Button
 if st.button('Evaluate Resume', type = 'primary'):
   with st.spinner('Evaluating...'):
     start_time = time.time()
@@ -47,36 +39,40 @@ if st.button('Evaluate Resume', type = 'primary'):
 
     # Fetch Job Description and Candidate Resume
     job_description, candidate_resume = fetch_data(job_id, candidate_id)
+
+    # Read Guidelines
+    with open('helpers/guidelines.txt', 'r') as file:
+      schema = file.read()
     
     # Keep trying to fetch data if invalid, stop after 10 seconds
     while (not job_description or not candidate_resume) and time.time() - start_time < timeout:
       job_description, candidate_resume = fetch_data(job_id, candidate_id)
       
     if not job_description or not candidate_resume:
-      st.error('Timeout while fetching data, please try again.')
-      st.rerun()
+      st.error('Timeout while fetching data, please refresh the page and try again.')
 
     # Calculate Score and Summary
-    score_summary = calculate_score(job_description, candidate_resume, job_type, score_examples)
-
-    transformed_response = transform_response( #transform the response arrays into html tables
-      score_summary['requirements_table'],
-      score_summary['desired_elements_table'],
-      job_type
-    )
+    score_summary = calculate_score(job_description, candidate_resume, schema)
     
-    # Display Results
-    st.markdown("## Viability Summary:")
-    st.markdown(f"**{get_recommendation(transformed_response['overall_score'])}**")
-    st.markdown(score_summary['viability_summary'], unsafe_allow_html=True)
-    st.header(f"Overall Score: {transformed_response['overall_score']}/10")
-    # st.subheader(f"Requirements Rating: {transformed_response['requirements_rating']}") 
-    st.text('Required Elements Breakdown:')
-    st.markdown(transformed_response['requirements_table'], unsafe_allow_html=True)
-    # st.subheader(f"Preferences Rating : {transformed_response['preferences_rating']}")
-    st.text('Desired Elements Breakdown:')
-    st.markdown(transformed_response['desired_elements_table'], unsafe_allow_html=True)
-    # print(transformed_response['overall_score'])
+    # Convert to JSON
+    score_summary = json.loads(score_summary)
+
+
+  # Display Results
+  st.header(f"Sourcing Summary: {score_summary['analysis']['score']}/10")
+  
+  st.subheader(f"Candidate: _{score_summary['analysis']['candidate_name']} #{candidate_id}_")
+  
+  st.subheader(f"Applied For: _{score_summary['analysis']['job_title']} #{job_id}_")
+
+  st.subheader("Experience:")
+  st.write(f"{score_summary['analysis']['experience']}")
+  
+  st.subheader("Skills:")
+  st.write(f"{score_summary['analysis']['skills']}")
+
+  st.subheader("Summary:")
+  st.write(score_summary['analysis']['summary'])
 
 # Footer
 st.markdown("""

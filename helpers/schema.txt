@@ -1,0 +1,10 @@
+{
+  analysis: {
+    "score": "number (0-10)",
+    "candidate_name": "string",
+    "job_title": "string",
+    "experience": "string (1-2 sentences listing candidate's relevant experience)",
+    "skills": "string (1-2 sentences listing candidate's relevant skills)",
+    "summary": "string (3-4 sentences for overall opinion)"
+  }
+}
