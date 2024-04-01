@@ -41,7 +41,7 @@ if st.button('Evaluate Resume', type = 'primary'):
     job_description, candidate_resume = fetch_data(job_id, candidate_id)
 
     # Read Guidelines
-    with open('helpers/guidelines.txt', 'r') as file:
+    with open('helpers/schema.txt', 'r') as file:
       schema = file.read()
     
     # Keep trying to fetch data if invalid, stop after 10 seconds
