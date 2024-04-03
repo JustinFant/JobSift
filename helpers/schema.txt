@@ -1,6 +1,6 @@
 {
   analysis: {
-    "score": "number (0-10)",
+    "score": "number (0-10. 1-4 means you don't recommend, 5-6 means they at least meet the minimum requirements, 7+ great candidate and you highly recommend)",
     "candidate_name": "string",
     "job_title": "string",
     "experience": "string (1-2 sentences listing candidate's relevant experience)",
