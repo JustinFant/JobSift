@@ -33,46 +33,48 @@ candidate_id = st.text_input('Enter the Candidate ID') # '298853' for testing
 
 
 if st.button('Evaluate Resume', type = 'primary'):
-  with st.spinner('Evaluating...'):
-    start_time = time.time()
-    timeout = 10
+  if job_id and candidate_id:
+    with st.spinner('Evaluating...'):
+      start_time = time.time()
+      timeout = 10
 
-    # Fetch Job Description and Candidate Resume
-    job_description, candidate_resume = fetch_data(job_id, candidate_id)
-
-    # Read Guidelines
-    with open('helpers/schema.txt', 'r') as file:
-      schema = file.read()
-    
-    # Keep trying to fetch data if invalid, stop after 10 seconds
-    while (not job_description or not candidate_resume) and time.time() - start_time < timeout:
+      # Fetch Job Description and Candidate Resume
       job_description, candidate_resume = fetch_data(job_id, candidate_id)
+
+      # Read Guidelines
+      with open('helpers/schema.txt', 'r') as file:
+        schema = file.read()
       
-    if not job_description or not candidate_resume:
-      st.error('Timeout while fetching data, please refresh the page and try again.')
+      # Keep trying to fetch data if invalid, stop after 10 seconds
+      while (not job_description or not candidate_resume) and time.time() - start_time < timeout:
+        job_description, candidate_resume = fetch_data(job_id, candidate_id)
+        
+      if not job_description or not candidate_resume:
+        st.error('Timeout while fetching data, please refresh the page and try again.')
+      else:
+        # Calculate Score and Summary
+        score_summary = calculate_score(job_description, candidate_resume, schema)
+        
+        # Convert to JSON
+        score_summary = json.loads(score_summary)
 
-    # Calculate Score and Summary
-    score_summary = calculate_score(job_description, candidate_resume, schema)
-    
-    # Convert to JSON
-    score_summary = json.loads(score_summary)
+        # Display Results
+        st.header(f"Sourcing Summary: {score_summary['analysis']['score']}/10")
+        
+        st.subheader(f"Candidate: _{score_summary['analysis']['candidate_name']} #{candidate_id}_")
+        
+        st.subheader(f"Applied For: _{score_summary['analysis']['job_title']} #{job_id}_")
 
+        st.subheader("Experience:")
+        st.write(f"{score_summary['analysis']['experience']}")
+        
+        st.subheader("Skills:")
+        st.write(f"{score_summary['analysis']['skills']}")
 
-  # Display Results
-  st.header(f"Sourcing Summary: {score_summary['analysis']['score']}/10")
-  
-  st.subheader(f"Candidate: _{score_summary['analysis']['candidate_name']} #{candidate_id}_")
-  
-  st.subheader(f"Applied For: _{score_summary['analysis']['job_title']} #{job_id}_")
-
-  st.subheader("Experience:")
-  st.write(f"{score_summary['analysis']['experience']}")
-  
-  st.subheader("Skills:")
-  st.write(f"{score_summary['analysis']['skills']}")
-
-  st.subheader("Summary:")
-  st.write(score_summary['analysis']['summary'])
+        st.subheader("Summary:")
+        st.write(score_summary['analysis']['summary'])
+  else:
+    st.error('Please enter the Job ID and Candidate ID to evaluate.')
 
 # Footer
 st.markdown("""
