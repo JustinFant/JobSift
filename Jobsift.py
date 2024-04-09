@@ -6,7 +6,7 @@ from functions.fetch_data import fetch_data
 from functions.calculate_score import calculate_score
 
 
-st.set_page_config(page_title="BEPC-JobsiftBeta", page_icon="static/logo.png", layout='wide')
+st.set_page_config(page_title="BEPC-Jobsift", page_icon="static/logo.png", layout='wide')
 
 # Function to read binary data and convert to base64
 def get_image_base64(image_path):
@@ -20,7 +20,7 @@ st.markdown(
   <div class="container">
     <h2 class="text-center mt-4">
       <img src="data:image/png;base64,{sr2new}" width="50" height="50" class="d-inline-block align-top" alt="">
-      JobSift Beta <span style="font-style: italic; font-size: 17px;">V3.0 for recruiting</span>
+      JobSift <span style="font-style: italic; font-size: 17px;">V3.0 for recruiting</span>
     </h2>
   </div>
   """,
