@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 import json
 import base64 
 from functions.fetch_data import fetch_data
@@ -35,22 +34,18 @@ candidate_id = st.text_input('Enter the Candidate ID') # '298853' for testing
 if st.button('Evaluate Resume', type = 'primary'):
   if job_id and candidate_id:
     with st.spinner('Evaluating...'):
-      start_time = time.time()
-      timeout = 10
-
-      # Fetch Job Description and Candidate Resume
-      job_description, candidate_resume = fetch_data(job_id, candidate_id)
-
       # Read Guidelines
       with open('helpers/schema.txt', 'r') as file:
         schema = file.read()
       
-      # Keep trying to fetch data if invalid, stop after 10 seconds
-      while (not job_description or not candidate_resume) and time.time() - start_time < timeout:
-        job_description, candidate_resume = fetch_data(job_id, candidate_id)
+      # Fetch Job Description and Candidate Resume
+      job_description, candidate_resume = fetch_data(job_id, candidate_id)
+
+      if not job_description:
+        st.error("Job description not found, please check the job id and description on Bullhorn.")
+      elif not candidate_resume:
+        st.error("Candidate's resume not found, please check the candidate id and resume on Bullhorn.")
         
-      if not job_description or not candidate_resume:
-        st.error('Timeout while fetching data, please refresh the page and try again.')
       else:
         # Calculate Score and Summary
         score_summary = calculate_score(job_description, candidate_resume, schema)
