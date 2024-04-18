@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 client = Groq()
 
-def calculate_score(job_description, candidate_resume, schema):
+def groq_call(job_description, candidate_resume, schema):
   response = client.chat.completions.create(
     model="mixtral-8x7b-32768",
     temperature=0,  
