@@ -5,6 +5,7 @@ import base64
 from functions.fetch_data import fetch_data
 from functions.groq_call import groq_call
 from functions.gpt_call import gpt_call
+from functions.save_response import save_response
 
 
 st.set_page_config(page_title="BEPC-Jobsift", page_icon="static/logo.png", layout='wide')
@@ -35,46 +36,57 @@ st.markdown(
 model = st.selectbox('Select Model', ['Groq', 'Chat GPT'])
 job_id = st.text_input('Enter the Job ID') #'23087' for testing
 candidate_id = st.text_input('Enter the Candidate ID') # '298853' for testing
+with open('helpers/schema.txt', 'r') as file:
+  schema = file.read()
 
+@st.experimental_fragment
+def save():
+  save = st.toggle('Save Response?', True)
+  if st.button('Submit Response'):
+    response = save_response(save, schema, job_description, candidate_resume, score_summary)
+    if not 'Failed' in response:
+      st.success(response)
+    else:
+      st.error(response)
 
 if st.button('Evaluate Resume', type = 'primary'):
   if job_id and candidate_id:
     with st.spinner('Evaluating...'):
-      # Read Guidelines
-      with open('helpers/schema.txt', 'r') as file:
-        schema = file.read()
-
       if DEBUG_TIMER:
         # Start timer before fetch_data
         start_time = time.time()
       
-      # Fetch Job Description and Candidate Resume
       job_description, candidate_resume = fetch_data(job_id, candidate_id)
       
       if DEBUG_TIMER:
         # Print time spent in fetch_data
-        print(f"Time to fetch data: {time.time() - start_time} seconds")
+        print(f"Time in fetch data: {time.time() - start_time} seconds")
 
       if not job_description:
         st.error("Job description not found, please check the job id and description on Bullhorn.")
       elif not candidate_resume:
         st.error("Candidate's resume not found, please check the candidate id and resume on Bullhorn.")
       else:
-        
-        if DEBUG_TIMER:
-          # Start timer before calculate_score
-          start_time = time.time()
-        
         if model == 'Groq':
-          # Call Groq
+          if DEBUG_TIMER:
+            # Start timer before groq call
+            start_time = time.time()
+          
           score_summary = groq_call(job_description, candidate_resume, schema)
+          
+          if DEBUG_TIMER:
+            # Print time spent in groq call
+            print(f"Time in groq call: {time.time() - start_time} seconds")
         else:
-          # Call Chat GPT
+          if DEBUG_TIMER:
+            # Start timer before gpt call
+            start_time = time.time()
+          
           score_summary = gpt_call(job_description, candidate_resume, schema)
-        
-        if DEBUG_TIMER:
-          # Print time spent in calculate_score
-          print(f"Time to calculate score: {time.time() - start_time} seconds")
+
+          if DEBUG_TIMER:
+            # Print time spent in gpt call
+            print(f"Time in gpt call: {time.time() - start_time} seconds")
 
         # Convert to JSON
         score_summary = json.loads(score_summary)
@@ -94,6 +106,8 @@ if st.button('Evaluate Resume', type = 'primary'):
 
         st.subheader("Summary:")
         st.write(score_summary['analysis']['summary'])
+        
+        save()
   else:
     st.error('Please enter the Job ID and Candidate ID to evaluate.')
 
@@ -111,3 +125,16 @@ st.markdown("""
   </div>
 </footer>
 """, unsafe_allow_html=True)
+
+# score_summary = """
+#   {
+#     "analysis": {
+#       "score": 8,
+#       "candidate_name": "Cesar Chavez",
+#       "job_title": "Quality Engineer",
+#       "experience": "Cesar Chavez has over 20 years of experience in Quality and Manufacturing, including roles such as Quality Assurance Engineer at Cardinal Health and Quality Engineer at PGSTech. He has extensive experience in ISO certifications, quality system audits, and supplier quality management.",
+#       "skills": "Cesar is a Six Sigma Black Belt, skilled in Lean Manufacturing, APQP, CAPA, and FMEA. He has strong technical skills in quality assurance, process improvement, and project management, with certifications in Internal Auditing for ISO 9000:2015 and TS 16949.",
+#       "summary": "Cesar Chavez is a highly experienced candidate with over two decades in quality and manufacturing roles, directly aligning with the requirements for the Quality Engineer position at BEPC Inc. His extensive experience in managing quality assurance across multiple plants, implementing ISO standards, and leading significant quality improvement initiatives makes him a strong candidate. He meets the educational and experience requirements, possesses relevant certifications, and has a proven track record of success in similar roles. No noticeable gaps in employment or short tenures were observed in his resume. His skills and experience highly match the job description, making him a recommended candidate for this position."
+#     }
+#   }
+# """
