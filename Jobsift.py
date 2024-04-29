@@ -107,7 +107,7 @@ if st.button('Evaluate Resume', type = 'primary'):
         st.subheader("Summary:")
         st.write(score_summary['analysis']['summary'])
         
-        save()
+        # save()
   else:
     st.error('Please enter the Job ID and Candidate ID to evaluate.')
 
