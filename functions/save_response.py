@@ -17,20 +17,27 @@ def save_response(save, schema, job_description, resume, response):
 
     response_data = json.dumps(response_data)
 
-    data = supabase.table("fine_tuning").insert({
-      "response": response_data
-    }).execute()
+    all_responses = supabase.table('fine_tuning').select('response').execute()
 
-    current_responses = supabase.table('data').select('positive_responses').execute()
+    existing_responses = [response['response'] for response in all_responses.data]
+
+    if response_data not in existing_responses:
+      data = supabase.table("fine_tuning").insert({
+        "response": response_data
+      }).execute()
+
+      current_responses = supabase.table('data').select('positive_responses').execute()
     
-    responses = supabase.table('data').update({
-      'positive_responses': current_responses.data[0]['positive_responses'] + 1
-    }).eq('id', 1).execute()
+      responses = supabase.table('data').update({
+        'positive_responses': current_responses.data[0]['positive_responses'] + 1
+      }).eq('id', 1).execute()
 
-    if data and responses:
-      return 'Response saved successfully, thank you for your feedback!'
+      if data and responses:
+        return 'Response saved successfully, thank you for your feedback!'
+      else:
+        return 'Failed to save response, please try again later.'
     else:
-      return 'Failed to save response, please try again later.'
+      return 'Failed to save, response already exists.'
   else:
     current_responses = supabase.table('data').select('negative_responses').execute()
     

@@ -41,13 +41,35 @@ with open('helpers/schema.txt', 'r') as file:
 
 @st.experimental_fragment
 def save():
-  save = st.toggle('Save Response?', True)
-  if st.button('Submit Response'):
-    response = save_response(save, schema, job_description, candidate_resume, score_summary)
-    if not 'Failed' in response:
-      st.success(response)
-    else:
-      st.error(response)
+  st.markdown("""
+    <style>
+        div[data-testid="column"] {
+            width: fit-content !important;
+            flex: unset;
+        }
+        div[data-testid="column"] * {
+            width: fit-content !important;
+        }
+    </style>
+  """, unsafe_allow_html=True)
+
+  col1, col2 = st.columns([1, 1])
+  with col1:
+    if st.button('Save Response'):
+      save = True
+      response = save_response(save, schema, job_description, candidate_resume, score_summary)
+      if not 'Failed' in response:
+        st.success(response)
+      else:
+        st.error(response)
+  with col2:
+    if st.button(':red[Discard Response]'):
+      save = False
+      response = save_response(save, schema, job_description, candidate_resume, score_summary)
+      if not 'Failed' in response:
+        st.success(response)
+      else:
+        st.error(response)
 
 if st.button('Evaluate Resume', type = 'primary'):
   if job_id and candidate_id:
@@ -57,6 +79,7 @@ if st.button('Evaluate Resume', type = 'primary'):
         start_time = time.time()
       
       job_description, candidate_resume = fetch_data(job_id, candidate_id)
+      # job_description, candidate_resume = 'Job Description', 'Candidate Resume'
       
       if DEBUG_TIMER:
         # Print time spent in fetch_data
