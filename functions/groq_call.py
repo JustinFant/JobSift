@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 client = Groq()
 
-def groq_call(job_description, candidate_resume, schema):
+def groq_call(job_data, candidate_resume, schema):
   response = client.chat.completions.create(
     model="mixtral-8x7b-32768",
     temperature=0,  
@@ -20,7 +20,7 @@ def groq_call(job_description, candidate_resume, schema):
           Unless the candidate meets or exceeds every requirement in the job description, give them a score less than 5. \
           Do not recommend candidates that have things like gaps in work history, short tenures, and other similar issues."},
         {"role":"user", "content":f"JSON Schema: {schema}"},
-        {"role":"user", "content":f"Job Description: {job_description}"},
+        {"role":"user", "content":f"Job Description: {job_data}"},
         {"role":"user", "content":f"Candidate Resume: {candidate_resume}"},
       ],
   )

@@ -57,7 +57,7 @@ def save():
   with col1:
     if st.button('Save Response'):
       save = True
-      response = save_response(save, schema, job_description, candidate_resume, score_summary)
+      response = save_response(save, schema, job_data, candidate_resume, score_summary)
       if not 'Failed' in response:
         st.success(response)
       else:
@@ -65,7 +65,7 @@ def save():
   with col2:
     if st.button(':red[Discard Response]'):
       save = False
-      response = save_response(save, schema, job_description, candidate_resume, score_summary)
+      response = save_response(save, schema, job_data, candidate_resume, score_summary)
       if not 'Failed' in response:
         st.success(response)
       else:
@@ -78,24 +78,24 @@ if st.button('Evaluate Resume', type = 'primary'):
         # Start timer before fetch_data
         start_time = time.time()
       
-      job_description, candidate_resume = fetch_data(job_id, candidate_id)
-      # job_description, candidate_resume = 'Job Description', 'Candidate Resume'
+      job_data, candidate_resume = fetch_data(job_id, candidate_id)
+      # job_data, candidate_resume = 'Job Description', 'Candidate Resume'
       
       if DEBUG_TIMER:
         # Print time spent in fetch_data
         print(f"Time in fetch data: {time.time() - start_time} seconds")
 
-      if not job_description:
-        st.error("Job description not found, please check the job id and description on Bullhorn.")
+      if not job_data:
+        st.error("Job information not found, please check the job id and description on BEATS and try again.")
       elif not candidate_resume:
-        st.error("Candidate's resume not found, please check the candidate id and resume on Bullhorn.")
+        st.error("Candidate's resume not found, please check the candidate's id and resume on BEATS and try again.")
       else:
         if model == 'Groq':
           if DEBUG_TIMER:
             # Start timer before groq call
             start_time = time.time()
           
-          score_summary = groq_call(job_description, candidate_resume, schema)
+          score_summary = groq_call(job_data, candidate_resume, schema)
           
           if DEBUG_TIMER:
             # Print time spent in groq call
@@ -105,7 +105,7 @@ if st.button('Evaluate Resume', type = 'primary'):
             # Start timer before gpt call
             start_time = time.time()
           
-          score_summary = gpt_call(job_description, candidate_resume, schema)
+          score_summary = gpt_call(job_data, candidate_resume, schema)
 
           if DEBUG_TIMER:
             # Print time spent in gpt call

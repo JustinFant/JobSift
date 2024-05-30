@@ -1,15 +1,26 @@
 import requests
+import json
 
 def fetch_data(job_id, candidate_id): # Fetch Job Description and resume
 
-  url_job = 'https://bepc.backnetwork.net/JobSiftBeta/assets/php/equalizer.php'
-  data_job = {"job": job_id, "get_description": "1"}
-  response_job = requests.post(url_job, data=data_job)
-  job_description = response_job.text
+  url = 'https://bepc.backnetwork.net/AutomatedScripts/beats_connection.php'
+  data = { "get_beats_job": job_id, "get_beats_candidate": candidate_id }
+  response = requests.post(url, data=data)
 
-  url_resume = 'https://bepc.backnetwork.net/JobSiftBeta/assets/php/job.php'
-  data_resume = {"candidate": candidate_id}
-  response_resume = requests.post(url_resume, data=data_resume)
-  candidate_resume = response_resume.text
+  # Split the response text into two parts and strip the brackets
+  parts = response.text.split('][')
+  parts[0] = parts[0] + ']'  
+  parts[1] = '[' + parts[1]  
 
-  return job_description, candidate_resume
+  # Load each part as a separate JSON object
+  job = json.loads(parts[0])
+  candidate = json.loads(parts[1])
+
+  job_data = {
+    "job_title": job[0]['job_title'],
+    "job_description": job[0]['job_description']
+  }
+
+  candidate_resume = candidate[0]['resume']
+
+  return job_data, candidate_resume
