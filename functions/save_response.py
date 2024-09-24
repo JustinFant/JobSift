@@ -4,7 +4,6 @@ from supabase import create_client, Client
 
 supabase = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
 
-
 def save_response(save, schema, job_description, resume, response):
   if save:
     response_data = {
@@ -26,26 +25,11 @@ def save_response(save, schema, job_description, resume, response):
         "response": response_data
       }).execute()
 
-      current_responses = supabase.table('data').select('positive_responses').execute()
-    
-      responses = supabase.table('data').update({
-        'positive_responses': current_responses.data[0]['positive_responses'] + 1
-      }).eq('id', 1).execute()
-
-      if data and responses:
+      if data:
         return 'Response saved successfully, thank you for your feedback!'
       else:
         return 'Failed to save response, please try again later.'
     else:
       return 'Failed to save, response already exists.'
   else:
-    current_responses = supabase.table('data').select('negative_responses').execute()
-    
-    data = supabase.table('data').update({
-      'negative_responses': current_responses.data[0]['negative_responses'] + 1
-    }).eq('id', 1).execute()
-
-    if data:
-      return 'Thank you for your feedback!'
-    else:
-      return 'Failed to save response, please try again later.'
+    return 'Thank you for your feedback!'
