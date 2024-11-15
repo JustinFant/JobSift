@@ -39,7 +39,7 @@ candidate_id = st.text_input('Enter the Candidate ID') # '298853' for testing
 with open('helpers/schema.txt', 'r') as file:
   schema = file.read()
 
-@st.experimental_fragment
+@st.fragment
 def save():
   st.markdown("""
     <style>
