@@ -2,13 +2,17 @@ import requests
 import json
 
 def fetch_data(job_id, candidate_id): # Fetch Job Description and resume
+
   url = 'https://bepc.backnetwork.net/AutomatedScripts/beats_connection.php'
   data = { "get_beats_job": job_id, "get_beats_candidate": candidate_id }
   response = requests.post(url, data=data)
+  print(response)
 
   # Split the response text into two parts and strip the brackets
   parts = response.text.split('][')
   
+  print(parts)
+
   if len(parts) < 2:
     print('Unexpected response format')
     return None, None
@@ -26,7 +30,7 @@ def fetch_data(job_id, candidate_id): # Fetch Job Description and resume
 
   job_data = {
     "job_title": job[0].get('job_title', ''),
-    "job_description": job[0].get('job_description', '')
+    "job_description": job[0].get('job_description', '') or job[0].get('published_description', '')
   }
 
   candidate_resume = candidate[0].get('resume', '')
