@@ -1,25 +1,30 @@
-import streamlit as st
+import base64
 import json
 import time
-import base64 
+
+import streamlit as st
+
 from functions.fetch_data import fetch_data
-from functions.groq_call import groq_call
 from functions.gpt_call import gpt_call
+from functions.groq_call import groq_call
 from functions.save_response import save_response
 
-
-st.set_page_config(page_title="BEPC-Jobsift", page_icon="static/logo.png", layout='wide')
+st.set_page_config(
+  page_title="BEPC-Jobsift", page_icon="static/logo.png", layout="wide"
+)
 
 # Timer to track seconds spent in each function, set to True to enable
 DEBUG_TIMER = False
 
+
 # Function to read binary data and convert to base64
 def get_image_base64(image_path):
-  with open(image_path, 'rb') as img_file:
-    return base64.b64encode(img_file.read()).decode('utf-8')
+  with open(image_path, "rb") as img_file:
+    return base64.b64encode(img_file.read()).decode("utf-8")
+
 
 # Convert images to base64 and include in HTML
-sr2new = get_image_base64('static/JS_3.png')
+sr2new = get_image_base64("static/JS_3.png")
 st.markdown(
   f"""
   <div class="container">
@@ -33,15 +38,18 @@ st.markdown(
 )
 
 # User Input via Streamlit widgets
-model = st.selectbox('Select Model', ['Groq', 'Chat GPT'])
-job_id = st.text_input('Enter the Job ID') #'23087' for testing
-candidate_id = st.text_input('Enter the Candidate ID') # '298853' for testing
-with open('helpers/schema.txt', 'r') as file:
+# model = st.selectbox("Select Model", ["Groq", "Chat GPT"])
+model = "Chat GPT"  # Hardcoded since Groq is not avalilable at this time
+job_id = st.text_input("Enter the Job ID")  #'23087' for testing
+candidate_id = st.text_input("Enter the Candidate ID")  # '298853' for testing
+with open("helpers/schema.txt", "r") as file:
   schema = file.read()
+
 
 @st.fragment
 def save():
-  st.markdown("""
+  st.markdown(
+    """
     <style>
         div[data-testid="column"] {
             width: fit-content !important;
@@ -51,52 +59,59 @@ def save():
             width: fit-content !important;
         }
     </style>
-  """, unsafe_allow_html=True)
+  """,
+    unsafe_allow_html=True,
+  )
 
-  col1, col2 = st.columns([1, 1])
-  with col1:
-    if st.button('Save Response'):
-      save = True
-      response = save_response(save, schema, job_data, candidate_resume, score_summary)
-      if not 'Failed' in response:
-        st.success(response)
-      else:
-        st.error(response)
-  with col2:
-    if st.button(':red[Discard Response]'):
-      save = False
-      response = save_response(save, schema, job_data, candidate_resume, score_summary)
-      if not 'Failed' in response:
-        st.success(response)
-      else:
-        st.error(response)
+  # col1, col2 = st.columns([1, 1])
+  # with col1:
+  #   if st.button("Save Response"):
+  #     save = True
+  #     response = save_response(save, schema, job_data, candidate_resume, score_summary)
+  #     if not "Failed" in response:
+  #       st.success(response)
+  #     else:
+  #       st.error(response)
+  # with col2:
+  #   if st.button(":red[Discard Response]"):
+  #     save = False
+  #     response = save_response(save, schema, job_data, candidate_resume, score_summary)
+  #     if not "Failed" in response:
+  #       st.success(response)
+  #     else:
+  #       st.error(response)
 
-if st.button('Evaluate Resume', type = 'primary'):
+
+if st.button("Evaluate Resume", type="primary"):
   if job_id and candidate_id:
-    with st.spinner('Evaluating...'):
+    with st.spinner("Evaluating..."):
       if DEBUG_TIMER:
         # Start timer before fetch_data
         start_time = time.time()
-      
+
       job_data, candidate_resume = fetch_data(job_id, candidate_id)
       # job_data, candidate_resume = 'Job Description', 'Candidate Resume'
-      
+
       if DEBUG_TIMER:
         # Print time spent in fetch_data
         print(f"Time in fetch data: {time.time() - start_time} seconds")
 
       if not job_data:
-        st.error("Job information not found, please check the job id and description on BEATS and try again.")
+        st.error(
+          "Job information not found, please check the job id and description on TOTS and try again."
+        )
       elif not candidate_resume:
-        st.error("Candidate's resume not found, please check the candidate's id and resume on BEATS and try again.")
+        st.error(
+          "Candidate's resume not found, please check the candidate's id and resume on TOTS and try again."
+        )
       else:
-        if model == 'Groq':
+        if model == "Groq":
           if DEBUG_TIMER:
             # Start timer before groq call
             start_time = time.time()
-          
+
           score_summary = groq_call(job_data, candidate_resume, schema)
-          
+
           if DEBUG_TIMER:
             # Print time spent in groq call
             print(f"Time in groq call: {time.time() - start_time} seconds")
@@ -104,7 +119,7 @@ if st.button('Evaluate Resume', type = 'primary'):
           if DEBUG_TIMER:
             # Start timer before gpt call
             start_time = time.time()
-          
+
           score_summary = gpt_call(job_data, candidate_resume, schema)
 
           if DEBUG_TIMER:
@@ -116,26 +131,31 @@ if st.button('Evaluate Resume', type = 'primary'):
 
         # Display Results
         st.header(f"Sourcing Summary: {score_summary['analysis']['score']}/10")
-          
-        st.subheader(f"Candidate: _{score_summary['analysis']['candidate_name']} #{candidate_id}_")
-          
-        st.subheader(f"Applied For: _{score_summary['analysis']['job_title']} #{job_id}_")
+
+        st.subheader(
+          f"Candidate: _{score_summary['analysis']['candidate_name']} #{candidate_id}_"
+        )
+
+        st.subheader(
+          f"Applied For: _{score_summary['analysis']['job_title']} #{job_id}_"
+        )
 
         st.subheader("Experience:")
         st.write(f"{score_summary['analysis']['experience']}")
-          
+
         st.subheader("Skills:")
         st.write(f"{score_summary['analysis']['skills']}")
 
         st.subheader("Summary:")
-        st.write(score_summary['analysis']['summary'])
-        
+        st.write(score_summary["analysis"]["summary"])
+
         save()
   else:
-    st.error('Please enter the Job ID and Candidate ID to evaluate.')
+    st.error("Please enter the Job ID and Candidate ID to evaluate.")
 
 # Footer
-st.markdown("""
+st.markdown(
+  """
 <footer class="footer mt-auto py-3">
   <div class="container text-center">
     <p class="text-muted">
@@ -147,7 +167,9 @@ st.markdown("""
     </p>
   </div>
 </footer>
-""", unsafe_allow_html=True)
+""",
+  unsafe_allow_html=True,
+)
 
 # score_summary = """
 #   {
