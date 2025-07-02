@@ -39,11 +39,11 @@ st.markdown(
 
 # User Input via Streamlit widgets
 # model = st.selectbox("Select Model", ["Groq", "Chat GPT"])
-model = "Chat GPT"  # Hardcoded since Groq is not avalilable at this time
-job_id = st.text_input("Enter the Job ID")  #'23087' for testing
-candidate_id = st.text_input("Enter the Candidate ID")  # '298853' for testing
-with open("helpers/schema.txt", "r") as file:
-  schema = file.read()
+# model = "Chat GPT"  # Hardcoded since Groq is not avalilable at this time
+# job_id = st.text_input("Enter the Job ID")  #'23087' for testing
+# candidate_id = st.text_input("Enter the Candidate ID")  # '298853' for testing
+# with open("helpers/schema.txt", "r") as file:
+#   schema = file.read()
 
 
 @st.fragment
@@ -82,76 +82,89 @@ def save():
   #       st.error(response)
 
 
-if st.button("Evaluate Resume", type="primary"):
-  if job_id and candidate_id:
-    with st.spinner("Evaluating..."):
-      if DEBUG_TIMER:
-        # Start timer before fetch_data
-        start_time = time.time()
+st.html(
+  """
+    <div style="display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 600;">
+            Jobsift on Streamlit is now shut down. <br /> 
+            All Jobsift functionality has been moved to TOTs. <br />
+            Please visit <a href="https://www.bepctots.com/login" target="_blank" style="color: #27507d;">bepctots.com</a> to continue using Jobsift.
+        </h2>
+    </div>
+  """
+)
 
-      job_data, candidate_resume = fetch_data(job_id, candidate_id)
-      # job_data, candidate_resume = 'Job Description', 'Candidate Resume'
 
-      if DEBUG_TIMER:
-        # Print time spent in fetch_data
-        print(f"Time in fetch data: {time.time() - start_time} seconds")
+# if st.button("Evaluate Resume", type="primary"):
+#   if job_id and candidate_id:
+#     with st.spinner("Evaluating..."):
+#       if DEBUG_TIMER:
+#         # Start timer before fetch_data
+#         start_time = time.time()
 
-      if not job_data:
-        st.error(
-          "Job information not found, please check the job id and description on TOTS and try again."
-        )
-      elif not candidate_resume:
-        st.error(
-          "Candidate's resume not found, please check the candidate's id and resume on TOTS and try again."
-        )
-      else:
-        if model == "Groq":
-          if DEBUG_TIMER:
-            # Start timer before groq call
-            start_time = time.time()
+#       job_data, candidate_resume = fetch_data(job_id, candidate_id)
+#       # job_data, candidate_resume = 'Job Description', 'Candidate Resume'
 
-          score_summary = groq_call(job_data, candidate_resume, schema)
+#       if DEBUG_TIMER:
+#         # Print time spent in fetch_data
+#         print(f"Time in fetch data: {time.time() - start_time} seconds")
 
-          if DEBUG_TIMER:
-            # Print time spent in groq call
-            print(f"Time in groq call: {time.time() - start_time} seconds")
-        else:
-          if DEBUG_TIMER:
-            # Start timer before gpt call
-            start_time = time.time()
+#       if not job_data:
+#         st.error(
+#           "Job information not found, please check the job id and description on TOTS and try again."
+#         )
+#       elif not candidate_resume:
+#         st.error(
+#           "Candidate's resume not found, please check the candidate's id and resume on TOTS and try again."
+#         )
+#       else:
+#         if model == "Groq":
+#           if DEBUG_TIMER:
+#             # Start timer before groq call
+#             start_time = time.time()
 
-          score_summary = gpt_call(job_data, candidate_resume, schema)
+#           score_summary = groq_call(job_data, candidate_resume, schema)
 
-          if DEBUG_TIMER:
-            # Print time spent in gpt call
-            print(f"Time in gpt call: {time.time() - start_time} seconds")
+#           if DEBUG_TIMER:
+#             # Print time spent in groq call
+#             print(f"Time in groq call: {time.time() - start_time} seconds")
+#         else:
+#           if DEBUG_TIMER:
+#             # Start timer before gpt call
+#             start_time = time.time()
 
-        # Convert to JSON
-        score_summary = json.loads(score_summary)
+#           score_summary = gpt_call(job_data, candidate_resume, schema)
 
-        # Display Results
-        st.header(f"Sourcing Summary: {score_summary['analysis']['score']}/10")
+#           if DEBUG_TIMER:
+#             # Print time spent in gpt call
+#             print(f"Time in gpt call: {time.time() - start_time} seconds")
 
-        st.subheader(
-          f"Candidate: _{score_summary['analysis']['candidate_name']} #{candidate_id}_"
-        )
+#         # Convert to JSON
+#         score_summary = json.loads(score_summary)
 
-        st.subheader(
-          f"Applied For: _{score_summary['analysis']['job_title']} #{job_id}_"
-        )
+#         # Display Results
+#         st.header(f"Sourcing Summary: {score_summary['analysis']['score']}/10")
 
-        st.subheader("Experience:")
-        st.write(f"{score_summary['analysis']['experience']}")
+#         st.subheader(
+#           f"Candidate: _{score_summary['analysis']['candidate_name']} #{candidate_id}_"
+#         )
 
-        st.subheader("Skills:")
-        st.write(f"{score_summary['analysis']['skills']}")
+#         st.subheader(
+#           f"Applied For: _{score_summary['analysis']['job_title']} #{job_id}_"
+#         )
 
-        st.subheader("Summary:")
-        st.write(score_summary["analysis"]["summary"])
+#         st.subheader("Experience:")
+#         st.write(f"{score_summary['analysis']['experience']}")
 
-        save()
-  else:
-    st.error("Please enter the Job ID and Candidate ID to evaluate.")
+#         st.subheader("Skills:")
+#         st.write(f"{score_summary['analysis']['skills']}")
+
+#         st.subheader("Summary:")
+#         st.write(score_summary["analysis"]["summary"])
+
+#         save()
+#   else:
+#     st.error("Please enter the Job ID and Candidate ID to evaluate.")
 
 # Footer
 st.markdown(
